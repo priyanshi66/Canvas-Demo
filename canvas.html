@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas Demo</title>
+</head>
+<body>
+	<canvas id="canvas1" style="width: 200px; height: 200px; border: 2px solid black; margin: 20px"></canvas>
+	<canvas id="canvas2" style="width: 200px; height: 200px; border: 2px solid red; margin: 20px"></canvas>
+	<canvas id="canvas3" style="width: 200px; height: 200px; border: 2px solid orange; margin: 20px"></canvas>
+	<canvas id="canvas4" style="width: 200px; height: 200px; border: 2px solid silver; margin: 20px"></canvas>
+	<canvas id="canvas5" style="width: 200px; height: 200px; border: 2px solid pink; margin: 20px"></canvas>
+	<canvas id="canvas6" style="width: 200px; height: 200px; border: 2px solid violet; margin: 20px"></canvas>
+
+
+
+	<script>
+		//canvas1
+		c1=document.getElementById('canvas1');
+		c1_x=c1.getContext('2d');
+		c1_x.fillStyle= 'silver';
+		c1_x.fillRect(0,0,100,100);
+
+		//canvas2 Drawing the line
+		c2=document.getElementById('canvas2');
+		c2_x=c2.getContext('2d');
+		c2_x.beginPath();
+		c2_x.moveTo(0,0);
+		c2_x.lineTo(150,200);
+		c2_x.stroke();
+
+		c3=document.getElementById('canvas3');
+		c3_x=c3.getContext('2d');
+		c3_x.beginPath();
+		c3_x.moveTo(150,0);
+		c3_x.lineTo(150,200);
+		c3_x.lineWidth= 20;
+		c3_x.strokeStyle='green';
+		c3_x.lineCap= 'butt';
+		c3_x.stroke();
+
+		//Drawing a circle
+		c4x=150;
+		c4y=80;
+		c4radius=40;
+		c4start_angle=0;
+		c4end_angle=2 * Math.PI;
+		c4=document.getElementById('canvas4');
+		c4_x=c4.getContext('2d');
+		c4_x.beginPath();
+		c4_x.arc(c4x,c4y,c4radius,c4start_angle,c4end_angle);
+		c4_x.stroke();
+		
+		//Quadratic line
+		c4controlpointx=30;
+		c4controlpointy=30;
+		c4endingpointx=180;
+		c4endingpointy=160;
+		c5=document.getElementById('canvas5');
+		c5_x=c5.getContext('2d');
+		c5_x.beginPath();
+		c5_x.moveTo(20,160);
+		c5_x.quadraticCurveTo(c4controlpointx,c4controlpointy,c4endingpointx,c4endingpointy);
+		c5_x.stroke();
+
+		//Drawing bezier curve
+		c6controlpointx=60;
+		c6controlpointy=60;
+		c6controlpointx2=160;
+		c6controlpointy2=120;
+		c6endingpointx=180;
+		c6endingpointy=160;
+		c6=document.getElementById('canvas6');
+		c6_x=c6.getContext('2d');
+		c6_x.beginPath();
+		c6_x.moveTo(20,160);
+		c6_x.bezierCurveTo(c6controlpointx,c6controlpointy,c6controlpointx2,c6controlpointy2,c6endingpointx,c6endingpointy);
+		c6_x.stroke();
+	</script>
+
+</body>
+</html>
